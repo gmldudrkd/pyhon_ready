@@ -4,9 +4,8 @@
 import time
 start_time = time.time()
 
-a = input()
-n = int(a)
-print(-n)
+a, b = input().split()
+print(float(a)**float(b))
 
 
 end_time = time.time()
@@ -40,4 +39,15 @@ a = input()
 n = int(a)
 print('%x'%n) #16진수
 print('%o'%n) #8진수
+
+
+
+#문자를 10진수 유니코드(Unicode)로
+a = ord(input())
+#유니코드를 +1 해서 코드에 해당하는 문자를 출력
+print(chr(a+1))
+
+#단어의 연속 출력
+word, r = input().split()
+print(word*int(r))
 '''
