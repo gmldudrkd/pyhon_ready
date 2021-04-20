@@ -4,12 +4,11 @@
 import time
 start_time = time.time()
 
-a, b, c = input().split()
-var_arr = [a, b, c]
-print(len(var_arr))
-
-for i in len(var_arr):
-    print(i)
+alpha_in = ord(input())
+alpha_st = ord("a")
+while alpha_st <= alpha_in:
+    print(chr(alpha_st), end=' ')
+    alpha_st += 1
 
 end_time = time.time()
 print()
@@ -90,9 +89,17 @@ ex) ~5 = -5-1 = -6
  -> ~(0101) = 1010 = -6
 비트연산 : int(a) & int(b) => 0101 & 0011 = 0001(3 & 5 = 1)
 
-#3항연산
+# 3항연산
 a if C else b
 a : C가 참일때 출력
 b : C가 참이 아닐때 출력
+
+# elseif 문
+if input_score >= 90:
+elif input_score >= 70:
+
+# 알파벳함수
+ord('a') : a를 숫자로 
+print(chr(alpha_st), end=' ') : alpha_st를 뒤에 공백잇게 문자열로 출력
 
 '''
