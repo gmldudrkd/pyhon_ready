@@ -4,16 +4,20 @@
 import time
 start_time = time.time()
 
-alpha_in = ord(input())
-alpha_st = ord("a")
-while alpha_st <= alpha_in:
-    print(chr(alpha_st), end=' ')
-    alpha_st += 1
+a_dice, b_dice = input().split()
+a_dice = int(a_dice)
+b_dice = int(b_dice)
+for i in range(a_dice):
+    i_re = i+1
+    for ii in range(b_dice):
+        ii_re = ii + 1
+        print(int(i_re), int(ii_re), sep=" ")
+
 
 end_time = time.time()
 print()
 print(">> Run time", end_time-start_time)
-
+ 
 '''
 
 # 구분값으로 출력(sep)
