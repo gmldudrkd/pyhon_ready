@@ -4,20 +4,15 @@
 import time
 start_time = time.time()
 
-a_dice, b_dice = input().split()
-a_dice = int(a_dice)
-b_dice = int(b_dice)
-for i in range(a_dice):
-    i_re = i+1
-    for ii in range(b_dice):
-        ii_re = ii + 1
-        print(int(i_re), int(ii_re), sep=" ")
+count = int(input())
+number = int(input())
+
 
 
 end_time = time.time()
 print()
 print(">> Run time", end_time-start_time)
- 
+
 '''
 
 # 구분값으로 출력(sep)
@@ -106,4 +101,26 @@ elif input_score >= 70:
 ord('a') : a를 숫자로 
 print(chr(alpha_st), end=' ') : alpha_st를 뒤에 공백잇게 문자열로 출력
 
+#16진수 곱셈
+n = int(input(),16)
+for i in range(1,16):
+    print('%X*%X=%X'%(n,i,n*i),sep='')
+    
+# 빛의표현(저장공간의 계산)
+input_rgb = input().split(" ")
+val_h = int(input_rgb[0])
+val_b = int(input_rgb[1])
+val_c = int(input_rgb[2])
+-- (val_h * val_b * val_c) > bit
+val_mb = (val_h * val_b * val_c)/8/1024/1024
+print(format(val_mb, ".2f")+" MB")
+
+8 bit(비트)           = 1byte(바이트)     # 8bit=1Byte
+1024 Byte(210 byte) = 1KB(킬로 바이트)  # 1024Byte=1KB
+1024 KB(210 KB)      = 1MB(메가 바이트)
+1024 MB(210 MB)     = 1GB(기가 바이트)
+1024 GB(210 GB)      = 1TB(테라 바이트)
+
+# 반복문 시작~끝값 정하기
+for i in range(1, input_number+1):
 '''
