@@ -5,9 +5,17 @@ import time
 start_time = time.time()
 
 count = int(input())
-number = int(input())
+number = input().split()
+all_student = []
+for i in range(23):
+    all_student.append(0)
 
+for n in range(count):
+    number[n] = int(number[n])
+    all_student[(number[n]-1)] += 1
 
+for ii in range(len(all_student)):
+    print(all_student[ii], end=" ")
 
 end_time = time.time()
 print()
@@ -123,4 +131,7 @@ print(format(val_mb, ".2f")+" MB")
 
 # 반복문 시작~끝값 정하기
 for i in range(1, input_number+1):
+
+# 공백을 두고 한줄로 출력 > 반복문으로
+print(all_student[ii], end=" ")
 '''
