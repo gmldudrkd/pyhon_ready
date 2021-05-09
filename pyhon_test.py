@@ -4,24 +4,24 @@
 import time
 start_time = time.time()
 
-count = int(input())
-number = input().split()
-all_student = []
-for i in range(23):
-    all_student.append(0)
+badok = [[0 for i in range(19)] for j in range(19)]
+white_n = int(input())
 
-for n in range(count):
-    number[n] = int(number[n])
-    all_student[(number[n]-1)] += 1
+for i in range(white_n):
+    tmp_set = list(map(int, input().split()))
+    badok[tmp_set[0]-1][tmp_set[1]-1] = 1
 
-for ii in range(len(all_student)):
-    print(all_student[ii], end=" ")
+for i in range(19):
+    for j in range(19):
+        print(badok[i][j], end=" ")
+    print()
+
 
 end_time = time.time()
 print()
 print(">> Run time", end_time-start_time)
 
-'''
+''' 
 
 # 구분값으로 출력(sep)
 a, b = input().split(":")
@@ -134,4 +134,15 @@ for i in range(1, input_number+1):
 
 # 공백을 두고 한줄로 출력 > 반복문으로
 print(all_student[ii], end=" ")
+
+# 반복문 뒤에서부터 출력
+for ii in range(len(all_student)-1, -1, -1):
+
+# 입력값 정수형 리스트로 저장
+data = list(map(int, input().split()))
+
+# 바둑판 리스트컴프리헨션
+- 기본 :  a = [0 for i in range(20)]
+badok = [[0 for i in range(20)] for j in range(20)]
+
 '''
