@@ -4,16 +4,27 @@
 import time
 start_time = time.time()
 
-badok = [[0 for i in range(19)] for j in range(19)]
-white_n = int(input())
 
-for i in range(white_n):
-    tmp_set = list(map(int, input().split()))
-    badok[tmp_set[0]-1][tmp_set[1]-1] = 1
+x_a, y_a = map(int, input().split())
+all_width = [[0 for i in range(y_a)] for j in range(x_a)]
 
-for i in range(19):
-    for j in range(19):
-        print(badok[i][j], end=" ")
+
+for_num = int(input())
+for a in range(for_num):
+    l, d, x, y = map(int, input().split())
+    # 가로
+    if d == 0:
+        for ld in range(l):
+            all_width[x-1][y-1+ld] = 1
+    else:
+        # 세로
+        for pt in range(l):
+            all_width[x-1+pt][y-1] = 1
+
+
+for ii in range(x_a):
+    for jj in range(y_a):
+        print(all_width[ii][jj], end=" ")
     print()
 
 
@@ -23,8 +34,7 @@ print(">> Run time", end_time-start_time)
 
 ''' 
 
-# 구분값으로 출력(sep)
-a, b = input().split(":")
+# 구분값으로 출력(sep)a, b = input().split(":")
 print(a, b, sep=":")
 
 a, b, c = input().split(".")
@@ -145,4 +155,35 @@ data = list(map(int, input().split()))
 - 기본 :  a = [0 for i in range(20)]
 badok = [[0 for i in range(20)] for j in range(20)]
 
+
+# 코드업 바둑판 10자 뒤집기 6096
+badok_arr = [[0 for i in range(19)] for j in range(19)]
+# 입력 값 바둑판 생성
+for a in range(19):
+    data = list(map(int, input().split()))
+    for b in range(len(data)):
+        badok_arr[a][b] = data[b]
+
+input_chk = int(input())
+for change_n in range(input_chk):
+    get_num = input().split()
+    get_i = int(get_num[0])-1
+    get_j = int(get_num[1])-1
+
+    for i in range(19):
+        if badok_arr[get_i][i] == 1:
+            badok_arr[get_i][i] = 0
+        else:
+            badok_arr[get_i][i] = 1
+    for i in range(19):
+        if badok_arr[i][get_j] == 1:
+            badok_arr[i][get_j] = 0
+        else:
+            badok_arr[i][get_j] = 1
+
+# 출력
+for ii in range(19):
+    for jj in range(19):
+        print(badok_arr[ii][jj], end=" ")
+    print()
 '''
