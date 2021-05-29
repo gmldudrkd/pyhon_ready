@@ -4,26 +4,44 @@
 import time
 start_time = time.time()
 
+# 초기화
+all_width = [[0 for i in range(10)] for j in range(10)]
 
-x_a, y_a = map(int, input().split())
-all_width = [[0 for i in range(y_a)] for j in range(x_a)]
+# 좌표생성
+for x in range(10):
+    data = list(map(int, input().split()))
+    for y in range(10):
+        all_width[x][y] = data[y]
 
+end_route = "N"
+s_x = s_y = 1
+all_width[s_x][s_y] = 9
 
-for_num = int(input())
-for a in range(for_num):
-    l, d, x, y = map(int, input().split())
-    # 가로
-    if d == 0:
-        for ld in range(l):
-            all_width[x-1][y-1+ld] = 1
+no_route = ""
+x_t = y_t = 0
+while end_route != "Y":
+    x_t = y_t = 0
+    if all_width[s_x][s_y+1] == 1:
+        x_t = s_x+1
+        y_t = s_y
     else:
-        # 세로
-        for pt in range(l):
-            all_width[x-1+pt][y-1] = 1
+        x_t = s_x
+        y_t = s_y+1
 
+    if all_width[x_t][y_t] == 2:
+        all_width[x_t][y_t] = 9
+        end_route = "Y"
+    elif all_width[x_t][y_t] == 1:
+        all_width[x_t][y_t] = 1
+        end_route = "Y"
+    else:
+        all_width[x_t][y_t] = 9
+        s_x = x_t
+        s_y = y_t
 
-for ii in range(x_a):
-    for jj in range(y_a):
+# 출력
+for ii in range(10):
+    for jj in range(10):
         print(all_width[ii][jj], end=" ")
     print()
 
@@ -36,7 +54,7 @@ print(">> Run time", end_time-start_time)
 
 # 구분값으로 출력(sep)a, b = input().split(":")
 print(a, b, sep=":")
-
+hj
 a, b, c = input().split(".")
 print(c, b, a, sep="-")
 
@@ -180,6 +198,30 @@ for change_n in range(input_chk):
             badok_arr[i][get_j] = 0
         else:
             badok_arr[i][get_j] = 1
+            
+# 코드업 설탕과자 뽑기 6067
+x_a, y_a = map(int, input().split())
+all_width = [[0 for i in range(y_a)] for j in range(x_a)]
+
+
+for_num = int(input())
+for a in range(for_num):
+    l, d, x, y = map(int, input().split())
+    # 가로
+    if d == 0:
+        for ld in range(l):
+            all_width[x-1][y-1+ld] = 1
+    else:
+        # 세로
+        for pt in range(l):
+            all_width[x-1+pt][y-1] = 1
+
+
+for ii in range(x_a):
+    for jj in range(y_a):
+        print(all_width[ii][jj], end=" ")
+    print()
+
 
 # 출력
 for ii in range(19):
